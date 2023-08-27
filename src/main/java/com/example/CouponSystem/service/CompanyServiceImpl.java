@@ -7,6 +7,7 @@ import com.example.CouponSystem.exception.AuthorizationException;
 import com.example.CouponSystem.exception.CompanyException;
 import com.example.CouponSystem.repo.CompanyRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
@@ -121,5 +122,9 @@ public class CompanyServiceImpl implements CompanyService {
         return claims;
     }
 
-
+    // function that returns UserDetails by userName(email) from the company table in the database.
+    @Override
+    public UserDetails findByEmail(String username) {
+        return this.companyRepository.findByEmail(username);
+    }
 }

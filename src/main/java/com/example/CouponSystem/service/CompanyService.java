@@ -4,6 +4,7 @@ import com.example.CouponSystem.beans.Company;
 import com.example.CouponSystem.beans.CompanyDTO;
 import com.example.CouponSystem.exception.AuthorizationException;
 import com.example.CouponSystem.exception.CompanyException;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ public interface CompanyService {
     Company getCompanyFromDB(int id) throws CompanyException;
     void updateCompany(int id, CompanyDTO companyDTO) throws CompanyException, AuthorizationException;
     void deleteCompany(int id) throws CompanyException, AuthorizationException;
+    UserDetails findByEmail(String username) throws CompanyException;
     boolean isEmailAndPasswordExist(String email, String password);
     Map<String, Object> buildClaims(CompanyDTO companyDTO);
 }
