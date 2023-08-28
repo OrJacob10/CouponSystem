@@ -8,7 +8,10 @@ import com.example.CouponSystem.exception.CustomerException;
 import com.example.CouponSystem.repo.CustomerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -106,5 +109,17 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public boolean isExist(Customer customer){
         return this.customerRepository.existsById(customer.getId());
+    }
+
+    // function that receives customer and builds the properties of the token
+    @Override
+    public Map<String, Object> buildClaims(CustomerDTO customerDTO) {
+        Customer customer = this.modelMapper.map(customerDTO, Customer.class);
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("id", customer.getId());
+        claims.put("email", customer.getEmail());
+        claims.put("firstName", customer.getFirstName());
+        claims.put("lastName", customer.getLastName());
+        return claims;
     }
 }
