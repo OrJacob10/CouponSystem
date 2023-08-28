@@ -7,6 +7,7 @@ import com.example.CouponSystem.beans.CustomerDTO;
 import com.example.CouponSystem.enums.ErrorMessage;
 import com.example.CouponSystem.exception.AuthorizationException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
@@ -15,15 +16,20 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-@RequiredArgsConstructor
 public class AuthService {
 
-    private final AuthenticationManager authenticationManager;
-    private final TokenService tokenService;
-    private final UserService userService;
-    private final CompanyService companyService;
-    private final AdminService adminService;
-    private final CustomerService customerService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private TokenService tokenService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private AdminService adminService;
+    @Autowired
+    private CustomerService customerService;
 
     // function that receives login details and returns a new token if the details are valid otherwise returns null
     public TokenResponseDTO createTokenFromLoginDetails(LoginRequestDTO loginRequestDTO) throws AuthorizationException {

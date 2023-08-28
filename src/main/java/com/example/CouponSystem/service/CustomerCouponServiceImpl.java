@@ -8,22 +8,26 @@ import com.example.CouponSystem.exception.CouponException;
 import com.example.CouponSystem.exception.CustomerCouponException;
 import com.example.CouponSystem.repo.CouponRepository;
 import com.example.CouponSystem.repo.CustomerCouponRepository;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 @Service
 public class CustomerCouponServiceImpl implements CustomerCouponService {
 
-    private final CustomerCouponRepository customerCouponRepository;
-    private final CustomerService customerService;
-    private final CouponService couponService;
-    private final CouponRepository couponRepository;
-    private final ModelMapper modelMapper;
+    @Autowired
+    private CustomerCouponRepository customerCouponRepository;
+    @Autowired
+    private CustomerService customerService;
+    @Autowired
+    private CouponService couponService;
+    @Autowired
+    private CouponRepository couponRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
 
     /*

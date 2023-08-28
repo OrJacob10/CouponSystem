@@ -10,18 +10,21 @@ import com.example.CouponSystem.exception.CouponException;
 import com.example.CouponSystem.repo.CouponRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 @Service
 public class CouponServiceImpl implements CouponService{
 
-    private final CompanyService companyService;
-    private final CouponRepository couponRepository;
-    private final ModelMapper modelMapper;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private CouponRepository couponRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     /*
        The function gets a coupon and adds the coupon to the database, to the table: coupons

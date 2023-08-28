@@ -7,6 +7,7 @@ import com.example.CouponSystem.exception.AuthorizationException;
 import com.example.CouponSystem.exception.CompanyException;
 import com.example.CouponSystem.repo.CompanyRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -17,7 +18,9 @@ import java.util.stream.Collectors;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
+    @Autowired
     private CompanyRepository companyRepository;
+    @Autowired
     private ModelMapper modelMapper;
 
     /*
