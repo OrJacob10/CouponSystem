@@ -18,7 +18,7 @@ public class CouponExpirationDailyJob{
     /*
        The thread goes through all the coupons in the coupon's table from the database,
        and deletes all the coupons that their end date had passed.
-       The thread executes once every 24 hours
+       The thread executes once every 24 hours.
    */
     @Async
     @Scheduled(cron = "0 0 0 * * ?")

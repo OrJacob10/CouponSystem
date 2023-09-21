@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import java.util.Random;
 
+// configuration of the app
 @EnableAsync
 @Configuration
 public class AppConfiguration {
